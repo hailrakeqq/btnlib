@@ -11,7 +11,7 @@ typedef struct button{
 };
 
 typedef void (*ButtonEventHandler)(struct button *button);
-void button_init(struct button *button, uint8_t pin, uint8_t state, uint8_t lastState, uint32_t debounceTime, uint32_t lastDebounceTime);
+void button_init(struct button *button, uint8_t pin, uint8_t state, uint8_t lastState);
 int8_t button_get_state(struct button *button);
 bool isClick(struct button *pbtn);
 bool isHold(struct button *pbtn);
