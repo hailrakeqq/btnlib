@@ -1,0 +1,3 @@
+/home/hailrake/media/code/btnlib/build/CMakeFiles/bntlib.dir
+/home/hailrake/media/code/btnlib/build/CMakeFiles/edit_cache.dir
+/home/hailrake/media/code/btnlib/build/CMakeFiles/rebuild_cache.dir

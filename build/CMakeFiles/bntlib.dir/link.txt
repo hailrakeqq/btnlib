@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbntlib.a CMakeFiles/bntlib.dir/src/btnlib.c.o
+/usr/bin/ranlib libbntlib.a
