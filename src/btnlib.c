@@ -1,20 +1,19 @@
 #include "btnlib.h"
 
-void button_init(struct button *button, uint8_t pin, uint8_t state, uint8_t lastState)
+void button_init(struct button *button, uint8_t pin)
 {
     button->pin = pin;
-    button->state = 0;
     button->lastState = 0;
-    
+
     pinMode(button->pin, INPUT_PULLUP);
 }
 
-int8_t button_get_state(struct button *button){
+uint8_t button_get_state(struct button *button){
     return digitalRead(button->pin);
 }
 
-bool isClick(struct button *pbtn){
-    bool currentState = button_get_state(pbtn);
+uint8_t isClick(struct button *pbtn){
+    int8_t currentState = button_get_state(pbtn);
     unsigned long currentTime = millis();
 
     if(currentState != pbtn->lastState)
@@ -22,15 +21,15 @@ bool isClick(struct button *pbtn){
 
     if(!currentState && (currentTime - pbtn->lastEventTime) >= 50 && (currentTime - pbtn->lastEventTime) <= 500) {
         pbtn->lastState = currentState;
-        return true;
+        return 1;
     }
 
     pbtn->lastState = currentState;
-    return false;
+    return 0;
 }
 
-bool isHold(struct button *pbtn){
-    bool currentState = button_get_state(pbtn);
+uint8_t isHold(struct button *pbtn){
+    int8_t currentState = button_get_state(pbtn);
     unsigned long currentTime = millis();
 
     if(currentState != pbtn->lastState)
@@ -38,9 +37,9 @@ bool isHold(struct button *pbtn){
 
     if(!currentState && (currentTime - pbtn->lastEventTime) > 500) {
         pbtn->lastState = currentState;
-        return true;
+        return 1;
     }
 
     pbtn->lastState = currentState;
-    return false;
-}   
+    return 0;
+}

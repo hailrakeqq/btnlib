@@ -1,19 +1,19 @@
-#ifndef BTNLIB_H
-#define BTNLIB_H
+#ifndef BNTLIB_TEST_BTNLIB_H
+#define BNTLIB_TEST_BTNLIB_H
 
 #include <Arduino.h>
 #include <stdint.h>
+
 typedef struct button{
     uint8_t pin;
-    uint8_t state;
     uint8_t lastState;
     unsigned long lastEventTime;
 };
 
 typedef void (*ButtonEventHandler)(struct button *button);
-void button_init(struct button *button, uint8_t pin, uint8_t state, uint8_t lastState);
-int8_t button_get_state(struct button *button);
-bool isClick(struct button *pbtn);
-bool isHold(struct button *pbtn);
+void button_init(struct button *button, uint8_t pin);
+uint8_t button_get_state(struct button *button);
+uint8_t isClick(struct button *pbtn);
+uint8_t isHold(struct button *pbtn);
 
-#endif //  BTNLIB_H
+#endif //BNTLIB_TEST_BTNLIB_H
