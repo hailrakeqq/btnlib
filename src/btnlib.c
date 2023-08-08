@@ -26,7 +26,7 @@ uint8_t button_hold(button *btn) {
             btn->flag = 1;
             btn->timer = millis();
         } else if (millis() - btn->timer >= 1000) {
-            btn->flag = 0; // Сброс _flag, чтобы предотвратить повторный вызов
+            btn->flag = 0; 
             return 1;
         }
     }

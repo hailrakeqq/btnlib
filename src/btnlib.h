@@ -11,8 +11,8 @@ typedef struct {
 } button;
 
 
-typedef void (*ButtonEventHandler)(struct button *button);
-void button_init(struct button *button, uint8_t pin);
+typedef void (*ButtonEventHandler)(button *button);
+void button_init(button *button, uint8_t pin);
 uint8_t button_click(button *pbtn);
 uint8_t button_hold(button *pbtn);
 
